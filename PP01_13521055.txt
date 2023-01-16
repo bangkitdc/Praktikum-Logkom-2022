@@ -1,0 +1,278 @@
+Nama    : Muhammad Bangkit Dwi Cahyono
+NIM     : 13521055
+
+Bagian <1>
+
+(a. Istri dari Vito)
+Query: suami(vito, X).
+
+X = power
+
+yes
+
+(b. Adik dari Elon Musk)
+Query: kakak(elon_musk, X).
+
+X = patrick
+
+yes
+
+(c. Cicit dari Gojo)
+Query: anak(X, _A), cucu(_A, gojo).
+
+X = anya ? 
+
+yes
+
+(d. Paman atau bibi tertua dari Wesly (pilih yang tertua))
+Query: orangtua(_A, wesly), saudara(PamanBibiTertua, _A), \+ (orangtua(_B, wesly), saudara(_PamanBibiLain, _B), usia(_PamanBibiLain, _X), usia(PamanBibiTertua, _Y), _X > _Y).
+
+PamanBibiTertua = van_rossum ? 
+
+yes
+
+(e. Pasangan dari ipar Aqua (X adalah ipar Y jika X adalah saudara dari suami/istri Y))
+Query: saudara(_Ipar, _A), menikah(_A, aqua), menikah(_Ipar, PasanganIpar).
+
+PasanganIpar = vito ? 
+
+yes
+
+(f. Cucu termuda dari Khelli)
+Query: cucu(CucuTermuda, khelli), anakbungsu(CucuTermuda), \+ (sepupu(_CucuLain, CucuTermuda), usia(_CucuLain, _X), usia(CucuTermuda, _Y), _X < _Y).
+
+CucuTermuda = patrick ? 
+
+yes
+
+(g. Orang yang menjadi anak kedua dari keluarganya*)
+Query: kakak(_Sulung, Kedua), anaksulung(_Sulung), \+ (kakak(_Lain, Kedua), \+ (anaksulung(_Lain))).
+
+Kedua = bambang ? ;
+
+Kedua = power ? ;
+
+Kedua = patrick ? 
+
+yes
+
+(h. Orang tua yang memiliki tepat dua anak)
+Query: anak(_Anak1, OrtuDuaAnak), anak(_Anak2, OrtuDuaAnak), _Anak1 \= _Anak2, anaksulung(_Anak1), anakbungsu(_Anak2), \+ (kakak(_Lain, _Anak2), _Lain \= _Anak1).
+
+OrtuDuaAnak = lovelace ? ;
+
+OrtuDuaAnak = gojo ? ;
+
+OrtuDuaAnak = ave ? ;
+
+OrtuDuaAnak = aqua ?
+
+yes
+
+(i. Orang yang punya mertua)
+Query: menantu(PunyaMertua, _Mertua), wanita(_Mertua).
+
+PunyaMertua = power ? ;
+
+PunyaMertua = vito ? ;
+
+PunyaMertua = aqua ? ;
+
+PunyaMertua = ave ? ;
+
+PunyaMertua = wulandari ? 
+
+yes
+
+(j. Wanita yang punya lebih dari 1 anak)
+Query: wanita(WanitaLebihDari1Anak), anak(_Anak1, WanitaLebihDari1Anak), anak(_Anak2, WanitaLebihDari1Anak), anaksulung(_Anak1), anakbungsu(_Anak2), _Anak1 \= _Anak2.
+
+WanitaLebihDari1Anak = indah ? ;
+
+WanitaLebihDari1Anak = lovelace ? ;
+
+WanitaLebihDari1Anak = aqua ? 
+
+yes
+
+(k. Orang yang belum pernah melahirkan ketika berusia di atas 20 tahun)
+Query: wanita(X), \+ (anak(_Anak, X), usia(X, _UsiaX), usia(_Anak, _UsiaAnak), (_UsiaX - _UsiaAnak) > 20).
+
+X = wulandari ? a
+
+X = anya
+
+yes
+
+(l. Keturunan dari Gede yang umurnya tidak lebih kecil dari 25 tahun)
+Query: keturunan(Keturunan, gede), usia(Keturunan, _X), _X >= 25.
+
+Keturunan = van_rossum ? ;
+
+Keturunan = bambang ? ;
+
+Keturunan = vito ? ;
+
+Keturunan = wesly ? 
+
+yes
+
+Bagian <2>
+
+Query: combination(5,2,X).
+
+X = 10
+
+yes
+
+Query: change(X, 14).
+
+X = 4
+
+yes
+
+Query: fpb(14,18,X).
+
+X = 2
+
+yes
+
+Query: mod(5,2,X).
+
+X = 1
+
+yes
+
+Query: deret(5, Y).
+
+Y = 10
+
+yes
+
+Bagian <3>
+
+Query: min([9, -8, -7, 11, -10], Min).
+
+Min = -10
+
+yes
+
+Query: max([9, -8, -7, 11, -10], Max).
+
+Max = 11
+
+yes
+
+Query: range([9, -8, -7, 11, -10], Range).
+
+Range = 21
+
+yes
+
+Query: count([9, -8, -7, 11, -10], Count).
+
+Count = 5
+
+yes
+
+Query: sum([9, -8, -7, 11, -10], Sum).
+
+Sum = -5
+
+yes
+
+Query: getIndex([1,2,5,-2,1,-4,-7], -2, Index).
+
+Index = 4
+
+yes
+
+Query: getIndex([1,2,5,-2,0,-2,-7], -11, Index).
+
+no
+
+Query: swap([5,6,7,8], 1, 1, Result).
+
+Result = [5,6,7,8]
+
+yes
+
+Query: swap([5,6,7,8], 4, 2, Result).
+
+Result = [5,8,7,6]
+
+yes
+
+Query: swap([5,6,7,8,9], 4, 6, Result).
+
+no
+
+Query: splitList([1,2,3,4,5,6], Ganjil, Genap).
+
+Ganjil = [1,3,5]
+Genap = [2,4,6]
+
+yes
+
+Query: splitList([1,2,3,4,5,6,7], Ganjil, Genap).
+
+Ganjil = [1,3,5,7]
+Genap = [2,4,6]
+
+yes
+
+<BONUS>
+
+Query: startCalculator.
+Selamat Datang di Kalkulator Prolog!
+Currently Saved Value is 0
+
+yes
+
+Query: add(5).
+Old Saved Value is 0
+New Saved Value is 5
+
+yes
+
+Query: subtract(7).
+Old Saved Value is 5
+New Saved Value is -2
+
+yes
+
+Query: divide(-2).
+Old Saved Value is -2
+New Saved Value is 1
+
+yes
+
+Query: multiply(0.5).
+Old Saved Value is 1
+New Saved Value is 0.5
+
+yes
+
+Query: getValue.
+Currently Saved Value is 0.5
+
+yes
+
+Query: clearCalculator.
+Old Saved Value is 0.5
+New Saved Value is 0
+
+yes
+
+Query: exitCalculator.
+Terima Kasih telah Menggunakan Kalkulator Prolog :D
+
+yes
+
+Query: add(6).
+
+no
+
+Query: subtract(8).
+
+no
